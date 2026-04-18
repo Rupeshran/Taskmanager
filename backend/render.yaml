@@ -1,0 +1,25 @@
+# render.yaml — Render.com deployment config for backend
+# Place this in the root of your backend folder
+
+services:
+  - type: web
+    name: taskflow-api
+    env: node
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false        # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false        # Set manually in Render dashboard
+      - key: JWT_EXPIRES_IN
+        value: 1h
+      - key: FRONTEND_URL
+        sync: false        # Set manually in Render dashboard

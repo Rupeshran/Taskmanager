@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Task Manager</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✓</text></svg>" />
+  <style>
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+    }
+    .landing::after {
+      content: '';
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,106,247,0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .landing-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+    .landing-logo .logo-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--accent);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 8px 32px rgba(124,106,247,0.4);
+    }
+    .landing h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 40%, rgba(124,106,247,0.8));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .landing p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .landing-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-landing-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-landing-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 24px var(--accent-glow);
+      transform: translateY(-2px);
+      color: #fff;
+    }
+    .btn-landing-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .btn-landing-secondary:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+      background: var(--bg-2);
+    }
+    .features {
+      display: flex;
+      gap: 24px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 700px;
+    }
+    .feature {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      text-align: left;
+      flex: 1;
+      min-width: 180px;
+      max-width: 200px;
+    }
+    .feature-icon { font-size: 22px; margin-bottom: 10px; }
+    .feature h3 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .feature p { font-size: 12px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="landing">
+    <div class="landing-logo">
+      <div class="logo-icon">✓</div>
+    </div>
+    <h1>TaskFlow</h1>
+    <p>A clean, fast, and secure task manager. Stay on top of your work without the clutter.</p>
+
+    <div class="landing-actions">
+      <a href="register.html" class="btn-landing-primary">Get Started →</a>
+      <a href="login.html" class="btn-landing-secondary">Sign In</a>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🔐</div>
+        <h3>Secure</h3>
+        <p>JWT auth, bcrypt hashing, rate limiting</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Fast</h3>
+        <p>Instant CRUD with optimistic UI</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">☁️</div>
+        <h3>Cloud-Ready</h3>
+        <p>Deploy on Render + Netlify in minutes</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>redirectIfLoggedIn();</script>
+</body>
+</html>

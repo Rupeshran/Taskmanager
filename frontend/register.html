@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — TaskFlow</title>
+  <meta name="description" content="Create your free TaskFlow account." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✓</text></svg>" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="logo-icon">✓</div>
+      <span class="logo-text">TaskFlow</span>
+    </div>
+
+    <h1>Create account</h1>
+    <p class="subtitle">Start organizing your work today</p>
+
+    <!-- Alert -->
+    <div class="alert alert--error" id="registerAlert" role="alert"></div>
+
+    <!-- Form -->
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Jane Smith"
+          autocomplete="name"
+          required
+          minlength="2"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="••••••••"
+          autocomplete="new-password"
+          required
+          minlength="8"
+        />
+        <p class="password-hint">Min 8 chars · uppercase · lowercase · number</p>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="••••••••"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn--primary" id="registerBtn">
+        <span class="spinner" id="registerSpinner"></span>
+        Create Account
+      </button>
+    </form>
+
+    <div class="auth-switch">
+      Already have an account? <a href="login.html">Sign in</a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    redirectIfLoggedIn();
+  </script>
+</body>
+</html>
