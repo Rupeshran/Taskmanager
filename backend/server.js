@@ -72,3 +72,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+console.log("Auth routes:", authRoutes);
