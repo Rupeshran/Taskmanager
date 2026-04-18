@@ -4,7 +4,7 @@
 
 // Set your deployed backend URL here (no trailing slash)
 // For local development: http://localhost:5000
-const API_BASE = window.ENV_API_URL || "http://localhost:5000";
+const API_BASE = window.ENV_API_URL || "taskmanager-production-cc07.up.railway.app";
 
 // ---- Token Management ----
 const auth = {
@@ -57,7 +57,7 @@ async function apiRequest(endpoint, options = {}) {
 // Call on protected pages — redirects to login if not authenticated
 function requireAuth() {
   if (!auth.isLoggedIn()) {
-    window.location.href = "/login.html";
+    window.location.href = "login.html";
   }
 }
 
